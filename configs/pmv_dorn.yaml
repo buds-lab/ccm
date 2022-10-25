@@ -1,0 +1,23 @@
+##### experiment wide
+name: 'dorn-pmv'
+iterations: 100
+seed: 13
+
+##### data specific
+dataset_name: 'dorn231'
+dataset: 'data/DORN_env_pmv_231.csv'
+dataset_survey: 'data/DORN_qns_all.csv'
+dataset_type: 'sensor' # 'sensor', 'sensor_qns'
+target_column: 'thermal_cozie'
+target_values:
+    - 9.0
+    - 10.0 
+    - 11.0
+train_test_ratio: 0.8
+categorical_features: # NOTE: can be update accordingly
+    - 'clothing'
+# questions are only used when the `dataset_type` is `sensor_qns`
+qns_encoding_idx: []
+qns_categories: []
+gamma: 0.0
+scorer: 'f1_micro'

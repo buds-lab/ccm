@@ -1,0 +1,70 @@
+##### experiment wide
+name: '20201222-5'
+iterations: 100 # by default should be 30
+seed: 13
+
+##### data specific
+dataset_name: 'dorn'
+dataset: 'data/DORN_env_phy_300.csv'
+dataset_survey: 'data/DORN_qns_overlap.csv'
+dataset_type: 'sensor' # 'sensor', 'sensor_qns'
+target_column: 'thermal_cozie'
+target_values:
+    - 9.0
+    - 10.0 
+    - 11.0
+train_test_ratio: 0.8
+test_user_data: 5 # 1, 0.5, 0.25, 0.125, 0.0625 | 1, 3, 5, 7
+categorical_features: # NOTE: can be update accordingly
+    - 'sex'
+    - 'clothing'
+feedback_sim: 'feedback-dist' # 'feedback-dist', 'baseline'
+qns_encoding_idx: # NOTE: can be update accordingly
+    - 3 # 'subtleties_awareness'
+    - 4 # 'overwhelemed_awareness'
+    - 5 # 'stimuli_awareness'
+qns_categories: # NOTE: can be updated accordingly
+    - - 1 # 'subtleties_awareness' 
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - - 1 # 'overwhelemed_awareness'
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - - 1 # 'stimuli_awareness'
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+gamma: 0.0
+divergence: 'jensen-shannon' 
+qns_sim: 'cosine' # 'cosine', 'euclidean'
+model: 'rdf' # 'rdf', 'xgb'
+scorer: 'f1_micro'
+use_val: False # by default should be False
+
+# cohort creation
+coefficients: # can take plenty different values
+    - 0 # alpha
+    - 0 # beta
+    - 1 # gamma
+cluster_algo: 'spectral' # 'spectral', 'kprototype'
+cluster_num: 2 # can take many different values
+cluster_forced: '-1' # '-1', 'sex', 'sensitive_thermal_env', 'subtleties_awareness', 'stimuli_awareness' [specific columns]
+cluster_assign: 'performance-noretrain' # 'performance', 'questions'
+cluster_predict_criteria: 'cold' # 'warm', 'cold'
+
+# PCM pre-computed makes experiment runs faster
+precomputed_pcm: True # by default should be True
+
+# aux debugging
+precomputed_test_users: False # by default should be False

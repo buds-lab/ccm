@@ -1,0 +1,48 @@
+##### experiment wide
+iterations: 100
+seed: 13
+
+##### data specific
+dataset_name: 'dorn231'
+dataset: 'data/DORN_env_phy_231.csv'
+dataset_survey: 'data/DORN_qns_all.csv'
+dataset_type: 'sensor' # 'sensor', 'sensor_qns'
+target_column: 'thermal_cozie'
+target_values:
+    - 9.0
+    - 10.0 
+    - 11.0
+train_test_ratio: 0.8
+categorical_features: # NOTE: can be update accordingly
+    - 'sex'
+    - 'clothing'
+# questions are only used when the `dataset_type` is `sensor_qns`
+qns_encoding_idx: # NOTE: can be update accordingly
+    - 3 # 'subtleties_awareness'
+    - 4 # 'overwhelemed_awareness'
+    - 5 # 'stimuli_awareness'
+qns_categories: # NOTE: can be updated accordingly
+    - - 1 # 'subtleties_awareness' 
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - - 1 # 'overwhelemed_awareness'
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    - - 1 # 'stimuli_awareness'
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+model: 'rdf'
+scorer: 'f1_micro'
+use_val: False

@@ -1,0 +1,24 @@
+##### experiment wide
+name: 'smc-pmv'
+iterations: 100
+seed: 13
+
+##### data specific
+dataset_name: 'smc60'
+dataset: 'data/SMC_env_phy_60.csv'
+dataset_survey: 'data/SMC_qns_60.csv'
+dataset_type: 'sensor' # 'sensor', 'sensor_qns'
+target_column: 'Preference'
+target_values:
+    - 9.0
+    - 10.0 
+    - 11.0
+train_test_ratio: 0.8
+categorical_features: # NOTE: can be update accordingly
+    - 'sex'
+    - 'SKC'
+# questions are only used when the `dataset_type` is `sensor_qns`
+qns_encoding_idx: []
+qns_categories: []
+gamma: 0.0
+scorer: 'f1_micro'
