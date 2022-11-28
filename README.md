@@ -15,7 +15,7 @@ conda env create --file envs/environment_<OS>.yaml # replace OS with either `mac
 
 We chose the following publicly available field longitudinal datasets:
 
-- [Dorn](https://github.com/FedericoTartarini/dorn-longitudinal-tc-study) TODO: final link for pub
+- [Dorn](https://github.com/FedericoTartarini/dorn-longitudinal-tc-study)
 - [SMC](https://doi.org/10.1016/j.buildenv.2018.11.012)
 
 Once the datasets are downloaded into `data/`, the notebook `preprocessing.ipynb` does some pre-processing and creates copies of the datasets with different feature sets.
